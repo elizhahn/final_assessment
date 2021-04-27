@@ -28,7 +28,9 @@ class App extends Component {
       body: JSON.stringify(newReservation)
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      this.setState({reservations: [...this.state.reservations, data]})
+    })
     .catch(error => console.log(error))
   }
 
