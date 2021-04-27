@@ -35,6 +35,7 @@ class ReservationForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input
+          data-cy="name-input"
           className="reservation-input"
           type="text"
           name="name"
@@ -44,6 +45,7 @@ class ReservationForm extends Component {
           placeholder="name"
         />
          <input
+         data-cy="date-input"
           className="reservation-input"
           type="text"
           name="date"
@@ -53,6 +55,7 @@ class ReservationForm extends Component {
           placeholder="Date mm/dd"
         />
          <input
+          data-cy="time-input"
           className="reservation-input"
           type="text"
           name="time"
@@ -62,6 +65,7 @@ class ReservationForm extends Component {
           placeholder="time"
         />
          <input
+          data-cy="number-guests-input"
           className="reservation-input"
           type="text"
           name="numGuests"
@@ -71,6 +75,7 @@ class ReservationForm extends Component {
           placeholder="number of guests"
         />
         <button 
+          data-cy="book-reservation-btn"
           type="submit" 
           className="book-reservation-btn">
             Make Reservation
