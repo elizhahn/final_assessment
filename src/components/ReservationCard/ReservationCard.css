@@ -1,0 +1,22 @@
+.reservation-card {
+  background-color: white;
+  border: thick solid teal;
+  border-radius: 10px; 
+  margin: 20px; 
+}
+
+.reservation-list {
+  list-style-type: none;
+  padding: 0px; 
+  margin: 30px;
+  font-size: 1.4em;
+  color: teal;   
+}
+
+.reservation-name {
+  font-weight: 600; 
+}
+
+.item {
+  margin-top: 10px; 
+}
