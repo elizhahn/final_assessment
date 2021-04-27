@@ -1,0 +1,12 @@
+.reservation-input {
+  margin-right: 20px; 
+  height: 20px; 
+}
+
+.book-reservation-btn {
+  background-color: teal; 
+  height: 30px;
+  color: white; 
+  border: thin solid white;
+  padding: 10px;  
+}
