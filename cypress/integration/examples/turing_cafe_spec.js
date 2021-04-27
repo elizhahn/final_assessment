@@ -1,5 +1,6 @@
 describe("Turing Cafe", () => {
   beforeEach(() => {
+    cy.intercept("POST", "http://localhost:3001/api/v1/reservations", {fixture: "newReservation.json"})
     cy.intercept("http://localhost:3001/api/v1/reservations", {fixture: "reservations.json"})
     cy.visit("http://localhost:3000/");
   })
@@ -22,13 +23,16 @@ describe("Turing Cafe", () => {
       .and("contain", "Number of guests: 2")
   });
 
-  it("should make a reservations", () => {
+  it("should make a reservation", () => {
     cy.get("[data-cy=name-input]").type("Yemena").should("have.value", "Yemena"); 
     cy.get("[data-cy=date-input]").type("04/23").should("have.value", "04/23"); 
-    cy.get("[data-cy=time-input]").type("5:00").should("have.value", "5:00"); 
+    cy.get("[data-cy=time-input]").type("5:30").should("have.value", "5:30"); 
     cy.get("[data-cy=number-guests-input]").type("1").should("have.value", "1"); 
+    cy.get("[data-cy=book-reservation-btn]").click();
+    cy.get("[data-cy=reservation-card]").eq(2).should("contain", "Yemena")
+      .and("contain", "04/23")
+      .and("contain", "5:30")
+      .and("contain", "Number of guests: 1") 
 
-    cy.get("[data-cy=book-reservation-btn]")
-
-  })
+  });
 });
