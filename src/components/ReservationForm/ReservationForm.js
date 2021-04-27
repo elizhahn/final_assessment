@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import "./ReservationForm.css";
 
 class ReservationForm extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state= {
       name: "",
       date: "", 
       time: "", 
-      numGuests: 0
+      numGuests: ""
     }
   }
 
@@ -17,15 +17,23 @@ class ReservationForm extends Component {
     this.setState({[name]: value})
   }
 
-  onSubmit = (event) => {
-    event.preventDefault(); 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const numGuests = Number(this.state.numGuests)
+    const newReservation = {
+      id: Date.now(), 
+      name: this.state.name, 
+      date: this.state.date, 
+      time: this.state.time, 
+      number: numGuests
+    }
+    this.props.bookReservation(newReservation);
   }
 
 
   render() {
-    console.log(this.state)
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           className="reservation-input"
           type="text"
@@ -62,7 +70,11 @@ class ReservationForm extends Component {
           onChange={this.handleChange}
           placeholder="number of guests"
         />
-        <button className="book-reservation-btn">Make Reservation</button>
+        <button 
+          type="submit" 
+          className="book-reservation-btn">
+            Make Reservation
+        </button>
       </form>
     )
   }
