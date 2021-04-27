@@ -45,7 +45,7 @@ class ReservationForm extends Component {
           placeholder="name"
         />
          <input
-         data-cy="date-input"
+          data-cy="date-input"
           className="reservation-input"
           type="text"
           name="date"

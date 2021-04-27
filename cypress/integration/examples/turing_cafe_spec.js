@@ -21,4 +21,14 @@ describe("Turing Cafe", () => {
       .and("contain", "6:30")
       .and("contain", "Number of guests: 2")
   });
+
+  it("should make a reservations", () => {
+    cy.get("[data-cy=name-input]").type("Yemena").should("have.value", "Yemena"); 
+    cy.get("[data-cy=date-input]").type("04/23").should("have.value", "04/23"); 
+    cy.get("[data-cy=time-input]").type("5:00").should("have.value", "5:00"); 
+    cy.get("[data-cy=number-guests-input]").type("1").should("have.value", "1"); 
+
+    cy.get("[data-cy=book-reservation-btn]")
+
+  })
 });
